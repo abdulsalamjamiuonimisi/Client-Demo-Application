@@ -1,0 +1,37 @@
+.root{
+    margin: 0;
+}
+.flex{
+    display: flex;
+   // background-color: aliceblue;
+    // padding: 0.6rem;
+    // padding-bottom: 0;
+    // border-bottom: 1px solid #eee;
+    padding: 0;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    
+  }
+ 
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    &_link{    
+        margin-left: 5px;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+
+    }
+
+}
+
+.bC{
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,30 @@
+<div class="root">
+    <div class="flex">
+        <!-- <a style="height: 20px;" routerLink = 'dashboard'>
+            <mat-icon class = 'icon' color = 'primary' >speed</mat-icon>
+        </a> -->
+        <div class="bC" *ngIf = 'breadCrumb$ | async as breadCrumbData'>
+
+            <div *ngIf = 'breadCrumbData.parent !== "" ' class="breadcrumb">
+                    <a  class="breadcrumb_link"  [routerLink] = 'breadCrumbData.parentLink'>
+                        <!-- <mat-icon class = 'icon' color = 'primary' >keyboard_arrow_left</mat-icon> -->
+                        {{breadCrumbData.parent}}
+                    </a>
+            </div>
+
+            <span>
+            </span>
+
+            <div *ngFor = 'let item of breadCrumbData.children ' class="breadcrumb" >
+                <mat-icon class = 'icon' color = 'primary' >keyboard_arrow_right</mat-icon>
+                    <a class="breadcrumb_link"  [routerLink] = 'item.childLink'>
+                        {{item.child}}
+
+                    </a>
+            </div>
+
+          
+
+        </div>
+    </div>
+</div>

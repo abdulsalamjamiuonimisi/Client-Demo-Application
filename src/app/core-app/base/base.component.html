@@ -1,0 +1,89 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+    <mat-sidenav #drawer class="sidenav" [style.width]="(isHandset$ | async) ? '220px' : drawerOpen ? '220px' : '60px'"
+        [style.boxShadow]="(isHandset$ | async) ? 'none' : drawerOpen ? 'none' : '0.2rem 0 1rem rgba(0,0,0,0.5)' "
+        [ngClass]="(isHandset$ | async) ? 'showSection' : drawerOpen ? 'showSection' : 'hideSection' "
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+        <!-- [style.borderRadius] = "(isHandset$ | async) ? '0px' : drawerOpen ? '0px' : '0px 25px 25px 0px' " -->
+        <mat-toolbar [style.padding-left]="drawerOpen ? '5px' : '5px' " style="padding-left: 5px; height: 11.5vh;
+        border-bottom: 2px solid white;">
+            <div class="flex-btw" *ngIf='!(isHandset$ | async)' style="justify-content: center;">
+                <img [ngClass]="(isHandset$ | async) ? 'showLogo' : drawerOpen ? 'showLogo' : 'hideLogo' "
+                    src="../../../assets/img/convz logo.png" class="logo" />
+                <button class="fab_alt" mat-fab color='primary' (click)="drawerOpen = !drawerOpen"
+                    matTooltip="Pin Side Navigation">
+                    <mat-icon *ngIf='drawerOpen' style="color: #fff;">menu_open</mat-icon>
+                    <mat-icon *ngIf='!drawerOpen' style="color: #fff;">menu</mat-icon>
+                </button>
+                <button mat-icon-button (click)="drawerOpen = !drawerOpen">
+                    <mat-icon *ngIf='drawerOpen' style="color: #fff;">menu_open</mat-icon>
+                    <mat-icon *ngIf='!drawerOpen' style="color: #fff;">menu</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+        <mat-nav-list class="list">
+            <div style="margin-top: 10px;">
+                <p class="nav-heading">Select Business Type</p>      
+                <div style="margin-top: 20px;">
+                    <a mat-list-item routerLink="/app/e-commerce-dashboard" routerLinkActive="active-list-item">
+                        <mat-icon class="icon">inventory</mat-icon>
+                        <span class="menu-name">
+                            E-commerce
+                        </span>
+                    </a>
+                    <a mat-list-item routerLink="/app/sass-dashboard" routerLinkActive="active-list-item">
+                        <mat-icon class="icon">analytics</mat-icon>
+                        <span class="menu-name">
+                            Sass
+                        </span>
+                    </a>
+                    <a mat-list-item routerLink="/app/retail-dashboard" routerLinkActive="active-list-item">
+                        <mat-icon class="icon">business</mat-icon>
+                        <span class="menu-name">
+                            Retail
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content [style.margin-left]="(isHandset$ | async) ? '0px' : drawerOpen  ? '220px' : '60px'"
+        style="transition: all .3s;">
+        <mat-toolbar color="primary">
+            <div class="toolbar_content">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                    *ngIf="isHandset$ | async">
+                    <mat-icon color='primary' aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <div class="flex-col">
+                    <app-breadcrumb></app-breadcrumb>
+                </div>
+                <div class="toolbar_search" style="margin-left: auto;">
+                  
+                </div>
+
+                <div class="toolbar_actions">
+                    <button mat-button [matMenuTriggerFor]="menu" class='user_profile' type="button" color="">
+                        <img src="../../../assets/img/convz logo.png" alt="" class="user_avatar">
+                        <span class="username">
+                            Convz Demo
+                        </span>
+                        <mat-icon style="margin-left: 20px; color: #777;" aria-label="Profile">keyboard_arrow_down
+                        </mat-icon>
+                    </button>
+                </div>
+                <mat-menu #menu="matMenu" class="menu">
+                    <button mat-menu-item class="menuButton">
+                        <mat-icon color='primary' class="menuIcon">account_circle</mat-icon>
+                        Profile
+                    </button>
+                    <button mat-menu-item class="menuButton" (click)="landingPage()">
+                        <mat-icon color='primary' class="menuIcon">logout</mat-icon>
+                        Back to landing page
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
