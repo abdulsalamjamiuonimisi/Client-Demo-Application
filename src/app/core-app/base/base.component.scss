@@ -126,6 +126,7 @@
   border-radius: 10px;
   margin-right: 20px;
   transition: 0.3s;
+  margin-left: 10px;
 
   ::ng-deep .mat-icon {
     height: 15px;
@@ -304,7 +305,7 @@
 }
 
 .active-list-item{
-    background: #56739d !important;
+    background: #f3968f57 !important;
     color: black !important;
     width: 102% !important;
     transition: 0.3s;
@@ -348,8 +349,14 @@
 
 .username{
   margin-left: 10px;
-  color: #777;
+  color: #f44336;
   margin-bottom: 0;
+}
+.showIcon{
+  display: inline;
+}
+.hideIcon{
+  display: none;
 }
 
 .toolbar_search{
