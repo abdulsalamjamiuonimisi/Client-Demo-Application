@@ -16,13 +16,6 @@ export class TrendsComponent implements OnInit {
 
      reportClass = 'report-container';  
 
-    
-    
-
-
-
-     
-
   @ViewChild(PowerBIReportEmbedComponent) reportObj!: PowerBIReportEmbedComponent;
 
 
@@ -39,7 +32,7 @@ export class TrendsComponent implements OnInit {
                     visible: false
                 }
             },
-            background: models.BackgroundType.Transparent,
+            background: models.BackgroundType.Transparent, 
     }
   };
 
