@@ -3,6 +3,26 @@
 @import './assets/scss/custom.scss';
 
 
+@font-face {
+  font-family: HK Grotesk;
+  src: url("./assets/fonts/hk-grotesk/HKGrotesk-Regular.otf")format("opentype");
+  // font-weight: 500;
+}
+@font-face {
+  font-family: HK Grotesk;
+  src: url("./assets/fonts/hk-grotesk/HKGrotesk-Regular.otf")format("opentype");
+  // font-weight: bold;
+}
+@font-face {
+  font-family: HK Grotesk;
+  src: url("./assets/fonts/hk-grotesk/HKGrotesk-Regular.otf")format("opentype");
+  // font-weight: normal;
+}
+@font-face {
+  font-family: HK Grotesk;
+  src: url("./assets/fonts/hk-grotesk/HKGrotesk-Regular.otf")format("opentype");
+  // font-weight: 600;
+}
 
 
 $convz-brand: (

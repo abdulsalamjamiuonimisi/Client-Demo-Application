@@ -12,7 +12,7 @@
   }
   .panel{
     height: 45px !important;
-    padding: 0 20px 0 8px !important;
+    // padding: 0 20px 0 8px !important;
 
     &:hover{
       background: #dddddd29 !important;
@@ -144,7 +144,8 @@
   }
 }
 .sub-active-list{
-  color: #FF6B00;
+  color: #f06054;
+  font-weight: bolder;
   
 }
 .sidenav .mat-toolbar {
@@ -361,9 +362,9 @@
 .active-list-item{
   background: #fafafa61!important;
   color: black !important;
-  padding-right: 20px;
+  // padding-right: 20px;
   transition: 0.3s;
-  border-left: 2px solid #f44336;
+  // border-left: 2px solid #f44336;
 }
 .inventoryIcon{
   height: 25px;
@@ -400,7 +401,7 @@
 }
 .username{
   margin-left: 10px;
-  color: #f44336;
+  color: white;
   margin-bottom: 0;
 }
 .showIcon{
@@ -469,5 +470,5 @@
   font-size: 14px;
 }
 .user_profile{
-  background-color: #fafafa;
+  background-color: #2a4770;
 }
