@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbService } from '../base/breadcrumb/breadcrumb.service';
+
 
 @Component({
   selector: 'app-sass-dashboard',
@@ -8,19 +8,8 @@ import { BreadcrumbService } from '../base/breadcrumb/breadcrumb.service';
 })
 export class SassDashboardComponent implements OnInit {
 
-  constructor(private breadcrumb: BreadcrumbService) { 
-    let history;
-    this.breadcrumb.breadcrumbObs$.subscribe(
-      (item)=>{
-        history = item
-      }
-    )
-
-    this.breadcrumb.updateBreadcrumb({
-      parent: 'SASS Dashboard',
-      parentLink: 'sass-dashboard',
-      children: []
-    })
+  constructor() { 
+    
   }
 
   ngOnInit(): void {

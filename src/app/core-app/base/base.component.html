@@ -1,48 +1,133 @@
-<mat-sidenav-container class="sidenav-container" autosize>
+<mat-sidenav-container class="sidenav-container" autosize (click)="hideChange1(); hideChange2(); hideChange3()">
     <mat-sidenav #drawer class="sidenav" [style.width]="(isHandset$ | async) ? '220px' : drawerOpen ? '220px' : '60px'"
         [style.boxShadow]="(isHandset$ | async) ? 'none' : drawerOpen ? 'none' : '0.2rem 0 1rem rgba(0,0,0,0.5)' "
         [ngClass]="(isHandset$ | async) ? 'showSection' : drawerOpen ? 'showSection' : 'hideSection' "
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false">
         <!-- [style.borderRadius] = "(isHandset$ | async) ? '0px' : drawerOpen ? '0px' : '0px 25px 25px 0px' " -->
-        <mat-toolbar [style.padding-left]="drawerOpen ? '5px' : '5px' " style="padding-left: 5px; height: 11.5vh;
-        border-bottom: 2px solid white;">
-            <div class="flex-btw" *ngIf='!(isHandset$ | async)' style="justify-content: center;">
+        <mat-toolbar [style.padding-left]="drawerOpen ? '5px' : '5px' ">
+            <div class="app_title" *ngIf="(isHandset$ | async) ? true : drawerOpen">
+                <img src="../../../assets/img/convz logo.png" class="logo"/> 
+        
+                
+              </div>
+        
+              <div *ngIf='!(isHandset$ | async)'>
+                <button 
+                class="fab_alt"
+                [style.left]="!drawerOpen ? '38px' : '205px'"
+                 mat-fab 
+                 style="background: white;"
+                (click)="drawerOpen = !drawerOpen"
+                >
+                <mat-icon *ngIf='drawerOpen' style="color: #2a4770;">menu_open</mat-icon>
+                <mat-icon *ngIf='!drawerOpen' style="color: #2a4770;">keyboard_arrow_right</mat-icon>
+        
+              </button>
+        
+              </div>
+            <!-- <div class="flex-btw" *ngIf='!(isHandset$ | async)' style="justify-content: center;">
                 <img [ngClass]="(isHandset$ | async) ? 'showLogo' : drawerOpen ? 'showLogo' : 'hideLogo' "
-                    src="../../../assets/img/convz logo.png" class="logo" />
+                    src="../../../assets/img/convz logo.png" class="logo"/>
                 <button class="fab_alt" mat-fab color='primary' (click)="drawerOpen = !drawerOpen"
-                    matTooltip="Pin Side Navigation" >
+                    matTooltip="Pin Side Navigation">
                     <mat-icon *ngIf='drawerOpen' style="color: #fff;">menu_open</mat-icon>
-                    <mat-icon *ngIf='!drawerOpen' style="color: #fff;" >menu</mat-icon>
+                    <mat-icon *ngIf='!drawerOpen' style="color: #fff;">menu</mat-icon>
                 </button>
                 <button mat-icon-button (click)="drawerOpen = !drawerOpen">
                     <mat-icon *ngIf='drawerOpen' style="color: #fff;">menu_open</mat-icon>
                     <mat-icon *ngIf='!drawerOpen' style="color: #fff;">menu</mat-icon>
                 </button>
-            </div>
+            </div> -->
         </mat-toolbar>
+
         <mat-nav-list class="list">
             <div style="margin-top: 10px;">
-                <p class="nav-heading">Select Business Type</p>      
+                <p class="nav-heading">Select Business Type</p>
                 <div style="margin-top: 20px;">
-                    <a mat-list-item routerLink="/app/e-commerce-dashboard" routerLinkActive="active-list-item">
-                        <mat-icon class="icon">inventory</mat-icon>
-                        <span class="menu-name">
-                            E-commerce
-                        </span>
-                    </a>
-                    <a mat-list-item routerLink="/app/sass-dashboard" routerLinkActive="active-list-item">
-                        <mat-icon class="icon">analytics</mat-icon>
-                        <span class="menu-name">
-                            Sass
-                        </span>
-                    </a>
-                    <a mat-list-item routerLink="/app/retail-dashboard" routerLinkActive="active-list-item">
-                        <mat-icon class="icon">business</mat-icon>
-                        <span class="menu-name">
-                            Retail
-                        </span>
-                    </a>
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                            class="accordion ">
+                            <mat-expansion-panel-header class="panel" routerLinkActive="active-list-item"
+                                [ngClass]="{'icon-hide': !drawerOpen }"
+                                (mouseover)="isChange1(); hideChange2(); hideChange3()">
+                                <mat-panel-title>
+                                    <div routerLink="/app/e-commerce-dashboard"
+                                        style="display: flex; align-items: center;">
+                                        <mat-icon class="icon">inventory</mat-icon>
+                                        <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">E-commerce</span>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div routerLink="/app/e-commerce-dashboard/kpi-cards" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">KPI Cards</div>
+                            <div routerLink="/app/e-commerce-dashboard/trends" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Customers360 View</div>
+                            <div routerLink="/app/e-commerce-dashboard/country-share" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Country Shares</div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                            class="accordion">
+                            <mat-expansion-panel-header class="panel show2" routerLinkActive="active-list-item"
+                                 [ngClass]="{'icon-hide': !drawerOpen}"
+                                 (mouseover)="isChange2(); hideChange1(); hideChange3()">
+                                <mat-panel-title>
+                                    <div routerLink="/app/sass-dashboard" style="display: flex; align-items: center;">
+                                        <mat-icon class="icon">shopping_bag</mat-icon>
+                                        <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">Sass</span>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div routerLink="/app/sass-dashboard/coupon-summary" class="sub-menu"
+                                routerLinkActive="sub-active-list" 
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Coupon Summary</div>
+                            <div routerLink="/app/sass-dashboard/coupon-details" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Coupon Details</div>
+
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                            class="accordion">
+                            <mat-expansion-panel-header class="panel show3" routerLinkActive="active-list-item" 
+                                [ngClass]="{'icon-hide': !drawerOpen}"
+                                (mouseover)="isChange3(); hideChange1(); hideChange2()">
+                                <mat-panel-title>
+                                    <div routerLink="/app/retail-dashboard" style="display: flex; align-items: center;">
+                                        <mat-icon class="icon">business</mat-icon>
+                                        <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">Retail</span>
+                                    </div>
+                                    
+                                </mat-panel-title>
+                                
+                            </mat-expansion-panel-header>
+                            
+                            <div routerLink="/app/retail-dashboard/channel-summary" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Channel Summary</div>
+                            <div routerLink="/app/retail-dashboard/channel-details" class="sub-menu"
+                                routerLinkActive="sub-active-list"
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Channel Details</div>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <!-- <p class="profile-setting">Settings</p>
+                    <div routerLink="/app/e-commerce-dashboard" class="profile" 
+                        (mouseover)="hideChange1(); hideChange2(); hideChange3()">
+                        <mat-icon class="icon">account_circle</mat-icon>
+                            <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">Profile</span>
+                    </div> -->
+
                 </div>
             </div>
         </mat-nav-list>
@@ -59,7 +144,7 @@
                     <app-breadcrumb></app-breadcrumb>
                 </div>
                 <div class="toolbar_search" style="margin-left: auto;">
-                  
+
                 </div>
 
                 <div class="toolbar_actions">
@@ -84,6 +169,26 @@
                 </mat-menu>
             </div>
         </mat-toolbar>
+        <div id="side-menu2" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
+            <div class="side-menu-list" routerLink="/app/sass-dashboard/coupon-summary"
+            routerLinkActive="side-menu-active"> Coupon summary</div>
+            <div class="side-menu-list" routerLink="/app/sass-dashboard/coupon-details"
+            routerLinkActive="side-menu-active"> Coupon details</div>
+        </div>
+        <div id="side-menu3" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
+            <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/kpi-cards"
+            routerLinkActive="side-menu-active">KPI cards</div>
+            <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/trends"
+            routerLinkActive="side-menu-active">Trends</div>
+            <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/country-share"
+            routerLinkActive="side-menu-active">Country share</div>
+        </div>
+        <div id="side-menu" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
+            <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-summary"
+            routerLinkActive="side-menu-active">Channel summary</div>
+            <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-details"
+            routerLinkActive="side-menu-active">Channel details</div>
+        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

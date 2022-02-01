@@ -1,0 +1,103 @@
+
+
+// .one{
+//     // animation-delay: .5s;
+//     padding: 30px;
+//     background: gray;
+//     color: white;
+//     width: 20%;
+//     margin: 10px 0;
+//     animation: move 5s 1s;
+    
+// }
+// .two{
+  
+//     padding: 30px;
+//     background: gray;
+//     color: white;
+//     width: 20%;
+//     margin: 10px 0;
+//     animation: move2 5s 6s;
+// }
+// .three{
+  
+//     padding: 30px;
+//     background: gray;
+//     color: white;
+//     width: 20%;
+//     margin: 10px 0;
+//     animation: move3 5s 11s;
+    
+// }
+// @keyframes move{
+//     50% {
+//         transform: translateY(0);
+//         -webkit-transition: all 1s ease;
+//         -moz-transition: 1s ease;
+//         transition: .5s ease;
+//         transform: scale(1.5); 
+//         color: red;
+//     }
+//     100%{
+//         transform: translateY(0px);
+//     }
+// }
+// @keyframes move2{
+//     50% {
+//         transform: translateY(0);
+//         -webkit-transition: all 1s ease;
+//         -moz-transition: 1s ease;
+//         transition: .5s ease;
+//         transform: scale(1.5); 
+//         color: red;
+//     }
+//     100%{
+//         transform: translateY(0px);
+//     }
+// }
+// @keyframes move3{
+//     50% {
+//         transform: translateY(0);
+//         -webkit-transition: all 1s ease; 
+//         -moz-transition: 1s ease;
+//         transition: .5s ease;
+//         transform: scale(1.5); 
+//         color: red;
+//     }
+//     100%{
+//         transform: translateY(0px);
+//     }
+// }
+// // .animate:nth-child(4){
+// //     animation-delay: 15s;
+// //     animation-timing-function: linear;
+// //     animation: linear infinite;
+// // }
+// // .animate:nth-child(5){
+// //     animation-delay: 20s;
+// //     animation-timing-function: linear;
+// //     animation: linear infinite;
+// // }
+// // .animate:nth-child(6){
+// //     animation-delay: 25s;
+// //     animation-timing-function: linear;
+// //     animation: linear infinite;
+// // }
+
+
+.root{
+    width: 100%;
+}
+
+::ng-deep iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    height: 98vh !important;
+}
+
+::ng-deep .EmbedError[_ngcontent-gef-c178] .NoLicenseErrorImg[_ngcontent-gef-c178], .EmbedError[_ngcontent-gef-c178] .GeneralErrorImg[_ngcontent-gef-c178] {
+    display: block;
+    margin: 0% auto 50px;
+}

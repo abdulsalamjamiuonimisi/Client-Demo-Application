@@ -1,0 +1,83 @@
+// .animation-box {
+//     width: 75%;
+//     height: 30rem;
+//     margin: 0 auto;
+//     overflow: hidden;
+//     position: relative;
+//   }
+  
+//   @keyframes fadeInOut {
+//    0% {
+//   opacity: 0;
+//   }
+  
+//   2% {
+//   opacity: 0;
+//   }
+  
+//   5% {
+//   opacity: 1;
+//   }
+  
+//   17% {
+//   opacity: 1;
+//   }
+  
+//   19% {
+//   opacity: 1;
+//   }
+  
+//   24% {
+//   opacity: 0;
+//   }
+  
+//   80% {
+//   opacity: 0;
+//   }
+  
+//   100% {
+//   opacity: 0;
+//   }
+//   }
+  
+//   .animation-box h1 {
+//     position: absolute;
+//     left: 5%;
+//     top: 0;
+//     font-size: 4em;
+//     color: black;
+//     font-weight: 400; 
+//   }
+  
+//   .first-line,
+//   .second-line,
+//   .third-line,
+//   .fourth-line {
+//     font-size: 3em;
+//     position: absolute;
+//     left: 5%;
+//     top: 20%;
+//     opacity: 0;
+//     color: rgba(200,200,200,0.9);
+//     animation-name: fadeInOut;
+//     animation-iteration-count: infinite;
+//   }
+  
+//   .first-line {  
+//     animation-duration: 12s;
+//   }
+  
+//   .second-line {  
+//     animation-delay: 3s;
+//     animation-duration: 12s;
+//   }
+  
+//   .third-line {
+//     animation-delay: 6s;
+//     animation-duration: 12s; 
+//   }
+  
+//   .fourth-line {  
+//     animation-delay: 9s;
+//     animation-duration: 12s;
+//   }
