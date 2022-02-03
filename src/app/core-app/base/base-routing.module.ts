@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MaslGuard} from '../../masl.guard';
 import { CountryShareComponent } from '../e-commerce-dashboard/country-share/country-share.component';
 import { ECommerceDashboardComponent } from '../e-commerce-dashboard/e-commerce-dashboard.component';
 import { KpiCardsComponent } from '../e-commerce-dashboard/kpi-cards/kpi-cards.component';
@@ -36,15 +37,18 @@ const routes: Routes = [
           },
           {
             path: 'country-share',
-            component: CountryShareComponent
+            component: CountryShareComponent, 
+            canActivate: [MaslGuard]
           },
           {
             path: 'trends',
-            component: TrendsComponent
+            component: TrendsComponent,
+            canActivate: [MaslGuard]
           },
           {
             path: 'kpi-cards',
-            component: KpiCardsComponent
+            component: KpiCardsComponent,
+            canActivate: [MaslGuard]
           }
         ]
       },
@@ -60,11 +64,13 @@ const routes: Routes = [
           },
           {
             path: 'coupon-details',
-            component: CouponDetailsComponent
+            component: CouponDetailsComponent,
+            canActivate: [MaslGuard]
           },
           {
             path: 'coupon-summary',
-            component: CouponSummaryComponent
+            component: CouponSummaryComponent,
+            canActivate: [MaslGuard]
           }
         ]
       },
@@ -79,11 +85,13 @@ const routes: Routes = [
           },
           {
             path: 'channel-details',
-            component: ChannelDetailsComponent
+            component: ChannelDetailsComponent,
+            canActivate: [MaslGuard]
           },
           {
             path: 'channel-summary',
-            component: ChannelSummaryComponent
+            component: ChannelSummaryComponent,
+            canActivate: [MaslGuard]
           }
         ]
       },

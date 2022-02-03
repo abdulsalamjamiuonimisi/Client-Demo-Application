@@ -17,6 +17,17 @@ import { ChannelSummaryComponent } from './core-app/retail-dashboard/channel-sum
 import { ChannelDetailsComponent } from './core-app/retail-dashboard/channel-details/channel-details.component';
 import { SettingsComponent } from './core-app/settings/settings.component';
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
+import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
+import { PublicClientApplication, IPublicClientApplication } from '@azure/msal-browser';
+
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      clientId: 'a85858b9-1973-453a-aa2a-6d7991e8eeb4',
+      redirectUri: 'http://localhost:4200'
+    }
+  })
+}
 
 
 @NgModule({
@@ -40,9 +51,16 @@ import { PowerBIEmbedModule } from 'powerbi-client-angular';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    PowerBIEmbedModule
+    PowerBIEmbedModule,
+    MsalModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    MsalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

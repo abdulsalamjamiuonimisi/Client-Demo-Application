@@ -74,7 +74,7 @@ export class TrendsComponent implements OnInit {
     )
 
     this.breadcrumb.updateBreadcrumb({
-      parent: 'Trends',
+      parent: 'Customers360 View',
       parentLink: 'e-commerce-dashboard/trends',
       children: []
     })

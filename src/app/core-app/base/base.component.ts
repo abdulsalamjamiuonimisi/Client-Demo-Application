@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Util } from 'src/app/helpers/utilities';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MsalService } from '@azure/msal-angular';
 
 
 
@@ -17,9 +18,12 @@ export class BaseComponent implements OnInit {
   menus = Util.sidebarMenu
   drawerOpen = true;
   open: boolean = false
-  panelOpenState = false;
+  panelOpenState = false; 
+  firstPanelOpen : any;
   change: any;
- 
+
+  username: any;
+  name: any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -29,15 +33,18 @@ export class BaseComponent implements OnInit {
   loading: boolean = false;
  
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, 
+    private msalService: MsalService) {}
 
   ngOnInit(): void{ 
-    
+    this.firstPanelOpen = true
+    this.name = this.msalService.instance.getActiveAccount()?.name
+    this.username = this.msalService.instance.getActiveAccount()?.username
   }
+
+  
   
   goToProfile(){
-    
-
   }
   isChange1(){
     this.change = "commerce"
@@ -74,8 +81,8 @@ export class BaseComponent implements OnInit {
   isOpen(){
     this.open = !this.open
   }
-  landingPage(){
-    this.router.navigate(['/'])
+  logout(){
+    this.msalService.logout()
   }
   
   

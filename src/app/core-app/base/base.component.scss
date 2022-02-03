@@ -10,10 +10,12 @@
       visibility: visible;
     }
   }
+  .profile-img{
+    width: 30%;
+    margin-top: 20px;
+  }
   .panel{
     height: 45px !important;
-    // padding: 0 20px 0 8px !important;
-
     &:hover{
       background: #dddddd29 !important;
     }
@@ -28,6 +30,10 @@
   ::ng-deep .mat-expansion-panel-header {
     padding: 0;
     // color: #000;
+  }
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0px !important;
+    background-color: white;
   }
   ::ng-deep .mat-expansion-indicator::after {
     color: #fff !important;
@@ -96,18 +102,20 @@
 
 .sub-menu{
   font-size: 12px;
-  color: #ffffffb0;
-  padding: 10px;
-  margin-left: 21px;
+  color: black;
+  padding: 10px 17px;
+  // margin-left: 21px;
  
 }
 
 .side-menu-active{
-  background: #798ba4;
+  background: #f4f4f4;
+  color: #f44336;
 }
 #side-menu2{
   position: absolute;
   top: 186px;
+  font-size: 12px;
   background: #2a4770;
   margin-left: 10px;
   padding: 16px 0;
@@ -122,6 +130,7 @@
   margin-left: 10px;
   padding: 16px 0;
   color: white;
+  font-size: 12px;
   display: none;
   border-radius: 5px;
 }
@@ -132,6 +141,7 @@
   margin-left: 10px;
   padding: 16px 0;
   color: white;
+  font-size: 12px;
   display: none;
   border-radius: 5px;
 }
@@ -144,8 +154,9 @@
   }
 }
 .sub-active-list{
-  color: #f06054;
+  color: #f44336;
   font-weight: bolder;
+  background: #28283c29;
   
 }
 .sidenav .mat-toolbar {
@@ -269,16 +280,30 @@
 
 ::ng-deep .menu{
   min-height: auto !important;
+
+  padding: 20px !important;
 }
 .menuButton{
   height: 35px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background: #f44336;
+  color: white;
+  border-radius: 5px;
+
+  &:hover{
+    transition: .5s ease-out;
+    transform: scale(1.04);
+    background-color: #f44336;
+  }
 }
 .menuIcon{
   height: 17px;
   width: 17px;
   font-size: 17px;
+  color: white;
 }
 .mat-drawer-side{
   border: none;
@@ -360,7 +385,7 @@
   width: 100%;
 }
 .active-list-item{
-  background: #fafafa61!important;
+  background: #fafafa30!important;
   color: black !important;
   // padding-right: 20px;
   transition: 0.3s;

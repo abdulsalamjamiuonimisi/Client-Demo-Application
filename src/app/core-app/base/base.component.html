@@ -46,7 +46,7 @@
                 <p class="nav-heading">Select Business Type</p>
                 <div style="margin-top: 20px;">
                     <mat-accordion>
-                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                        <mat-expansion-panel (opened)="firstPanelOpen = true" (closed)="firstPanelOpen = false"
                             class="accordion ">
                             <mat-expansion-panel-header class="panel" routerLinkActive="active-list-item"
                                 [ngClass]="{'icon-hide': !drawerOpen }"
@@ -151,44 +151,52 @@
                     <button mat-button [matMenuTriggerFor]="menu" class='user_profile' type="button" color="">
                         <!-- <img src="../../../assets/img/convz logo.png" alt="" class="user_avatar"> -->
                         <span class="username">
-                            Convz Demo
+                            {{name}}
                         </span>
                         <mat-icon style="margin-left: 20px; color: white;" aria-label="Profile">keyboard_arrow_down
                         </mat-icon>
                     </button>
                 </div>
-                <mat-menu #menu="matMenu" class="menu">
-                    <button mat-menu-item class="menuButton">
+                <mat-menu #menu="matMenu" class="menu" style="padding: 20px;">
+                    <!-- <button mat-menu-item class="menuButton">
                         <mat-icon color='primary' class="menuIcon">account_circle</mat-icon>
                         Profile
-                    </button>
-                    <button mat-menu-item class="menuButton" (click)="landingPage()">
+                    </button> -->
+                    <div style="font-size: 20px;">Welcome,</div>
+                    <div style="font-size: 20px; font-weight: bold; margin-top: 10px; color: #2a4770;">{{name}}</div>
+                    <div style="font-size: 14px;margin-top: 5px;">{{username}}</div>
+                    <div style="display: flex; align-items: center;">
+                        <img src="../../../assets/img/4970774-removebg-preview (1).png" class="profile-img">
+                        <div style="margin-left: 10px;">Convz Client Demo Application</div>
+                    </div>
+                   
+                    <button mat-menu-item class="menuButton" (click)="logout()">
                         <mat-icon color='primary' class="menuIcon">logout</mat-icon>
-                        Back to landing page
+                        Logout
                     </button>
                 </mat-menu>
             </div>
         </mat-toolbar>
         <div id="side-menu2" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
             <div class="side-menu-list" routerLink="/app/sass-dashboard/coupon-summary"
-            routerLinkActive="side-menu-active"> Coupon summary</div>
+            routerLinkActive="side-menu-active"> Coupon Summary</div>
             <div class="side-menu-list" routerLink="/app/sass-dashboard/coupon-details"
-            routerLinkActive="side-menu-active"> Coupon details</div>
+            routerLinkActive="side-menu-active"> Coupon Details</div>
         </div>
         <div id="side-menu3" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/kpi-cards"
-            routerLinkActive="side-menu-active">KPI cards</div>
+            routerLinkActive="side-menu-active">KPI Cards</div>
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/trends"
-            routerLinkActive="side-menu-active">Trends</div>
+            routerLinkActive="side-menu-active">Customers360 View</div>
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/country-share"
-            routerLinkActive="side-menu-active">Country share</div>
+            routerLinkActive="side-menu-active">Country Share</div>
         </div>
         <div id="side-menu" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
             <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-summary"
-            routerLinkActive="side-menu-active">Channel summary</div>
+            routerLinkActive="side-menu-active">Channel Summary</div>
             <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-details"
-            routerLinkActive="side-menu-active">Channel details</div>
+            routerLinkActive="side-menu-active">Channel Details</div>
         </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> 
