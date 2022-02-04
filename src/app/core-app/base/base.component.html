@@ -61,13 +61,13 @@
                             </mat-expansion-panel-header>
                             <div routerLink="/app/e-commerce-dashboard/kpi-cards" class="sub-menu"
                                 routerLinkActive="sub-active-list"
-                                *ngIf="(isHandset$ | async) ? true : drawerOpen">KPI Cards</div>
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Marketing Model</div>
                             <div routerLink="/app/e-commerce-dashboard/trends" class="sub-menu"
                                 routerLinkActive="sub-active-list"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Customers360 View</div>
                             <div routerLink="/app/e-commerce-dashboard/country-share" class="sub-menu"
                                 routerLinkActive="sub-active-list"
-                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Country Shares</div>
+                                *ngIf="(isHandset$ | async) ? true : drawerOpen">Market Shares</div>
                         </mat-expansion-panel>
                     </mat-accordion>
 
@@ -185,11 +185,11 @@
         </div>
         <div id="side-menu3" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/kpi-cards"
-            routerLinkActive="side-menu-active">KPI Cards</div>
+            routerLinkActive="side-menu-active">Marketing Model</div>
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/trends"
             routerLinkActive="side-menu-active">Customers360 View</div>
             <div class="side-menu-list" routerLink="/app/e-commerce-dashboard/country-share"
-            routerLinkActive="side-menu-active">Country Share</div>
+            routerLinkActive="side-menu-active">Market Shares</div>
         </div>
         <div id="side-menu" *ngIf="(isHandset$ | async) ? false : !drawerOpen">
             <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-summary"
@@ -197,6 +197,6 @@
             <div class="side-menu-list" routerLink="/app/retail-dashboard/channel-details"
             routerLinkActive="side-menu-active">Channel Details</div>
         </div>
-        <router-outlet></router-outlet>
+        <router-outlet></router-outlet> 
     </mat-sidenav-content>
 </mat-sidenav-container> 

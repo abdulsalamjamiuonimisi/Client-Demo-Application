@@ -18,8 +18,9 @@
     // line-height: 1.3;
 }
 .btn-animate{
-    margin: 15px 0;
     margin-left: 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     &:hover{
         transition: .5 ease;
         transform: scale(1.04);
@@ -35,14 +36,14 @@
 .logo{
     width: 100%;
     margin-left: -15px;
-    margin-top: -20px;
+    margin-top: -10px;
 }
 .ms-logo{
     width: 10%;
     margin-left: 16px;
 }
 .image{
-    width: 100%;
+    width: 115%;
 }
 .image-wrapper{
     text-align: end;
@@ -59,7 +60,7 @@
     font-size: 19.5px;
 }
 .smarter-text{
-    margin: 15px 0;
+    margin: 20px 0;
     font-size: 28px;
     margin-left: 10px;
     font-weight: bold;
@@ -67,8 +68,8 @@
 .demo-env{
     text-align: end; 
     color: white; 
-    margin-top: -20px; 
-    font-size: 20px;
+    margin-top: -14px; 
+    font-size: 27px;
 }
 .welcome{
     font-size: 27px; 

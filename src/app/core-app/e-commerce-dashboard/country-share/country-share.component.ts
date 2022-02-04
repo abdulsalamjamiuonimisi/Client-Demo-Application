@@ -20,7 +20,7 @@ export class CountryShareComponent implements OnInit {
     )
 
     this.breadcrumb.updateBreadcrumb({
-      parent: 'Country Shares',
+      parent: 'Market Shares',
       parentLink: 'e-commerce-dashboard/country-share',
       children: []
     })

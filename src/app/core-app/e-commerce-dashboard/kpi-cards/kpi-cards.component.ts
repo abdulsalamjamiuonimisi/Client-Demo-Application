@@ -72,7 +72,7 @@ reportConfig: IReportEmbedConfiguration = {
     )
 
     this.breadcrumb.updateBreadcrumb({
-      parent: 'KPI Cards',
+      parent: 'Marketing Model',
       parentLink: 'e-commerce-dashboard/kpi-cards',
       children: []
     })
