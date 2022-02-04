@@ -82,8 +82,8 @@ export class BaseComponent implements OnInit {
     this.open = !this.open
   }
   logout(){
-    // this.msalService.logout()
-    this.router.navigateByUrl('/') 
+    this.msalService.logout()
+    // this.router.navigateByUrl('/') 
   }
   
   
