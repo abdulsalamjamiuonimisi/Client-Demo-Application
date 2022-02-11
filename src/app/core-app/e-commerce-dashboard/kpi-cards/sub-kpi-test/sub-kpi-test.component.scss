@@ -1,0 +1,16 @@
+.root{
+    width: 100%;
+}
+
+::ng-deep iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    height: 98vh !important; 
+}
+
+::ng-deep .EmbedError .NoLicenseErrorImg, .EmbedError .GeneralErrorImg {
+    display: block;
+    margin: 0% auto 50px;
+}

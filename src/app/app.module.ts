@@ -19,6 +19,10 @@ import { SettingsComponent } from './core-app/settings/settings.component';
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { PublicClientApplication, IPublicClientApplication } from '@azure/msal-browser';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { SubKpiTestComponent } from './core-app/e-commerce-dashboard/kpi-cards/sub-kpi-test/sub-kpi-test.component';
+import { SubKpiTest2Component } from './core-app/e-commerce-dashboard/kpi-cards/sub-kpi-test2/sub-kpi-test2.component';
+import { SubKpiTest3Component } from './core-app/e-commerce-dashboard/kpi-cards/sub-kpi-test3/sub-kpi-test3.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -44,7 +48,10 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     CouponDetailsComponent,
     ChannelSummaryComponent,
     ChannelDetailsComponent,
-    SettingsComponent
+    SettingsComponent,
+    SubKpiTestComponent,
+    SubKpiTest2Component,
+    SubKpiTest3Component
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     SharedModule,
     BrowserAnimationsModule,
     PowerBIEmbedModule,
-    MsalModule
+    MsalModule,
+    IvyCarouselModule
   ],
   providers: [
     {

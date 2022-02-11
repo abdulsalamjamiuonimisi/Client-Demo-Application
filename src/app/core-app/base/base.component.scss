@@ -423,6 +423,7 @@
   width: 100%; 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .username{
   margin-left: 10px;
@@ -496,4 +497,69 @@
 }
 .user_profile{
   background-color: #2a4770;
+}
+.toolbar-list{
+    font-size: 14px;
+    padding: 10px 40px;
+    background: #b0b0b0;
+    border-radius: 5px;
+}
+.toolbar-list-wrapper{
+
+}
+.carousel{
+  height: 35px !important;
+  width: 59% !important;
+}
+.carousel-cell{
+  text-align: center;
+}
+
+::ng-deep .carousel-container{
+  cursor: pointer !important;
+}
+::ng-deep .carousel-arrow-prev {
+  left: -14px!important;
+}
+::ng-deep .carousel-arrow-next {
+  right: -20px!important;
+}
+mat-form-field {
+  min-width: 50%;
+  font-size: 13px;
+  margin-left: 20px;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.25em 0 0.75em 0;
+  color: black;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(3%) !important;
+}
+::ng-deep .mat-form-field-underline {
+  width: 0px !important;
+}
+::ng-deep .mat-form-field-wrapper {
+   padding-bottom: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px !important;
+  padding: 0px 10px !important;
+  background-color: #fafafa !important;
+}
+.arrow{
+    font-size: 24px;
+    margin-left: 10px;
+}
+.bread-wrap{
+  display: flex;
+  justify-content: space-between;
+  width: 32%;
+  align-items: center;
+}
+.wrap-caro{
+  width: 62%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

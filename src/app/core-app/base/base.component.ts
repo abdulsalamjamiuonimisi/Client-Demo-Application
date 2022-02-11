@@ -5,6 +5,7 @@ import { Util } from 'src/app/helpers/utilities';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
+import { AppService } from 'src/app/app.service';
 
 
 
@@ -24,6 +25,22 @@ export class BaseComponent implements OnInit {
 
   username: any;
   name: any;
+  status: any;
+  list1 = [
+    {name: "Marketing 1",value: "Marketing 1", link: "kpi-card1"},
+    {name: "Marketing 2",value: "Marketing 2", link: "kpi-card2"},
+    {name: "Marketing 3",value: "Marketing 3", link: "kpi-card3"},
+  ]
+  list2 = [
+    {name: "Trends 1", value: "Trends 1"},
+    {name: "Trends 2", value: "Trends 2"},
+    {name: "Trends 3", value: "Trends 3"},
+  ]
+  list3 = [
+    {name: "Country 1", value: "Country 1"},
+    {name: "Country 2", value: "Country 2"},
+  ]
+  selected: any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -31,18 +48,38 @@ export class BaseComponent implements OnInit {
       shareReplay()
     );
   loading: boolean = false;
+  list:any = [];
  
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router, 
-    private msalService: MsalService) {}
+    private msalService: MsalService, private app : AppService) {}
 
   ngOnInit(): void{ 
     this.firstPanelOpen = true
-    this.name = this.msalService.instance.getActiveAccount()?.name
-    this.username = this.msalService.instance.getActiveAccount()?.username
+    this.name = this.app.helperService.getClientname()
+    this.username = this.app.helperService.getEmail()
+    this.status = this.app.helperService.getClientStatus()
+    
+    this.getSubs('marketing')
+  }
+  getLink(val: any){
+      this.router.navigateByUrl('app/e-commerce-dashboard/kpi-cards/'+ val)  
   }
 
-  
+  getSubs(val: any){
+    if(val == 'marketing'){
+      this.list = this.list1
+      this.selected = this.list[0].name
+    }
+    else if(val == 'trends'){
+      this.list = this.list2
+      this.selected = this.list[0].name
+    }
+    else if(val == 'country'){
+      this.list = this.list3
+      this.selected = this.list[0].name
+    }
+  }
   
   goToProfile(){
   }
@@ -82,8 +119,9 @@ export class BaseComponent implements OnInit {
     this.open = !this.open
   }
   logout(){
-    this.msalService.logout()
-    // this.router.navigateByUrl('/') 
+    this.app.logoutUser()
+    // this.msalService.logout()
+    
   }
   
   

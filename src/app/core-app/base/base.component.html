@@ -45,27 +45,27 @@
             <div style="margin-top: 10px;">
                 <p class="nav-heading">Select Business Type</p>
                 <div style="margin-top: 20px;">
-                    <mat-accordion>
+                    <mat-accordion *ngIf="status === 'admin' ">
                         <mat-expansion-panel (opened)="firstPanelOpen = true" (closed)="firstPanelOpen = false"
                             class="accordion ">
                             <mat-expansion-panel-header class="panel" routerLinkActive="active-list-item"
                                 [ngClass]="{'icon-hide': !drawerOpen }"
                                 (mouseover)="isChange1(); hideChange2(); hideChange3()">
                                 <mat-panel-title>
-                                    <div routerLink="/app/e-commerce-dashboard"
+                                    <div (click)="getSubs('marketing')" routerLink="/app/e-commerce-dashboard"
                                         style="display: flex; align-items: center;">
                                         <mat-icon class="icon">inventory</mat-icon>
                                         <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">E-commerce</span>
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            <div routerLink="/app/e-commerce-dashboard/kpi-cards" class="sub-menu"
+                            <div routerLink="/app/e-commerce-dashboard/kpi-cards" (click)="getSubs('marketing')" class="sub-menu"
                                 routerLinkActive="sub-active-list"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Marketing Model</div>
-                            <div routerLink="/app/e-commerce-dashboard/trends" class="sub-menu"
+                            <div routerLink="/app/e-commerce-dashboard/trends" (click)="getSubs('trends')" class="sub-menu"
                                 routerLinkActive="sub-active-list"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Trends</div>
-                            <div routerLink="/app/e-commerce-dashboard/country-share" class="sub-menu"
+                            <div routerLink="/app/e-commerce-dashboard/country-share" (click)="getSubs('country')" class="sub-menu"
                                 routerLinkActive="sub-active-list"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Country/Ops Shares</div>
                         </mat-expansion-panel>
@@ -78,17 +78,17 @@
                                  [ngClass]="{'icon-hide': !drawerOpen}"
                                  (mouseover)="isChange2(); hideChange1(); hideChange3()">
                                 <mat-panel-title>
-                                    <div routerLink="/app/sass-dashboard" style="display: flex; align-items: center;">
+                                    <div (click)="getSubs('coupon-summary')" routerLink="/app/sass-dashboard" style="display: flex; align-items: center;">
                                         <mat-icon class="icon">shopping_bag</mat-icon>
                                         <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">Sass</span>
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
                             <div routerLink="/app/sass-dashboard/coupon-summary" class="sub-menu"
-                                routerLinkActive="sub-active-list" 
+                                routerLinkActive="sub-active-list" (click)="getSubs('coupon-summary')"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Coupon Summary</div>
                             <div routerLink="/app/sass-dashboard/coupon-details" class="sub-menu"
-                                routerLinkActive="sub-active-list"
+                                routerLinkActive="sub-active-list" (click)="getSubs('coupon-details')"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Coupon Details</div>
 
 
@@ -102,7 +102,7 @@
                                 [ngClass]="{'icon-hide': !drawerOpen}"
                                 (mouseover)="isChange3(); hideChange1(); hideChange2()">
                                 <mat-panel-title>
-                                    <div routerLink="/app/retail-dashboard" style="display: flex; align-items: center;">
+                                    <div (click)="getSubs('channel-summary')" routerLink="/app/retail-dashboard" style="display: flex; align-items: center;">
                                         <mat-icon class="icon">business</mat-icon>
                                         <span class="menu-name" *ngIf="(isHandset$ | async) ? true : drawerOpen">Retail</span>
                                     </div>
@@ -112,10 +112,10 @@
                             </mat-expansion-panel-header>
                             
                             <div routerLink="/app/retail-dashboard/channel-summary" class="sub-menu"
-                                routerLinkActive="sub-active-list"
+                                routerLinkActive="sub-active-list" (click)="getSubs('channel-summary')"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Channel Summary</div>
                             <div routerLink="/app/retail-dashboard/channel-details" class="sub-menu"
-                                routerLinkActive="sub-active-list"
+                                routerLinkActive="sub-active-list" (click)="getSubs('channel-details')"
                                 *ngIf="(isHandset$ | async) ? true : drawerOpen">Channel Details</div>
 
                         </mat-expansion-panel>
@@ -140,13 +140,25 @@
                     *ngIf="isHandset$ | async">
                     <mat-icon color='primary' aria-label="Side nav toggle icon">menu</mat-icon>
                 </button>
-                <div class="flex-col">
+                <div class="bread-wrap">
                     <app-breadcrumb></app-breadcrumb>
+                    <mat-icon color='primary' class="arrow">arrow_forward</mat-icon>
+                    <mat-form-field appearance="fill">
+                        <mat-select [(value)]="selected">
+                          <mat-option *ngFor="let item of list" [value]="item.value" (click)="getLink(item.link)">
+                            <span style="color: black;" >{{item.name}}</span>
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
-                <div class="toolbar_search" style="margin-left: auto;">
-
-                </div>
-
+                
+                <!-- <div class="wrap-caro"> 
+                    <carousel>
+                        <div class="carousel-cell" *ngFor="let item of list">
+                            <span class="toolbar-list">{{item.name}}</span>
+                        </div>
+                    </carousel>
+                </div> -->
                 <div class="toolbar_actions">
                     <button mat-button [matMenuTriggerFor]="menu" class='user_profile' type="button" color="">
                         <!-- <img src="../../../assets/img/convz logo.png" alt="" class="user_avatar"> -->
