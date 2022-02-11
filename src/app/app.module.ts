@@ -27,7 +27,7 @@ import { SubKpiTest3Component } from './core-app/e-commerce-dashboard/kpi-cards/
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      clientId: 'ea2bc290-9b0a-4284-8579-57122a95db97',  
+      clientId: 'a85858b9-1973-453a-aa2a-6d7991e8eeb4',
       redirectUri: 'http://localhost:4200'
     }
   })
