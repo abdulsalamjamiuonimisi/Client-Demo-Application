@@ -158,8 +158,8 @@ export class BaseComponent implements OnInit {
     this.open = !this.open
   }
   logout(){
-    this.app.logoutUser()
-    // this.msalService.logout()
+    // this.app.logoutUser()
+    this.msalService.logout()
     
   }
   
