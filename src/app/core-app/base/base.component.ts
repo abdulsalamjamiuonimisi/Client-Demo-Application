@@ -40,6 +40,27 @@ export class BaseComponent implements OnInit {
     {name: "Country 1", value: "Country 1"},
     {name: "Country 2", value: "Country 2"},
   ]
+
+  list4 = [
+    {name: "Coupon Summary 1", value: "Coupon Summary 1"},
+    {name: "Coupon Summary 2", value: "Coupon Summary 2"},
+    {name: "Coupon Summary 3", value: "Coupon Summary 3"},
+  ]
+  list5 = [
+    {name: "Coupon Details 1", value: "Coupon Details 1"},
+    {name: "Coupon Details 2", value: "Coupon Details 2"},
+    {name: "Coupon Details 3", value: "Coupon Details 3"},
+  ]
+  list6 = [
+    {name: "Channel Summary 1", value: "Channel Summary 1"},
+    {name: "Channel Summary 2", value: "Channel Summary 2"},
+    {name: "Channel Summary 3", value: "Channel Summary 3"},
+  ]
+  list7 = [
+    {name: "Channel Details 1", value: "Channel Details 1"},
+    {name: "Channel Details 2", value: "Channel Details 2"},
+    {name: "Channel Details 3", value: "Channel Details 3"},
+  ]
   selected: any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -60,7 +81,13 @@ export class BaseComponent implements OnInit {
     this.username = this.app.helperService.getEmail()
     this.status = this.app.helperService.getClientStatus()
     
-    this.getSubs('marketing')
+   
+
+    if(this.status === 'admin'){
+      this.getSubs('marketing')
+    }else if(this.status === 'user') {
+      this.getSubs('coupon-summary')
+    }
   }
   getLink(val: any){
       this.router.navigateByUrl('app/e-commerce-dashboard/kpi-cards/'+ val)  
@@ -77,6 +104,18 @@ export class BaseComponent implements OnInit {
     }
     else if(val == 'country'){
       this.list = this.list3
+      this.selected = this.list[0].name
+    }else if(val == 'coupon-summary'){
+      this.list = this.list4
+      this.selected = this.list[0].name
+    }else if(val == 'coupon-details'){
+      this.list = this.list5
+      this.selected = this.list[0].name
+    }else if(val == 'channel-summary'){
+      this.list = this.list6
+      this.selected = this.list[0].name
+    }else if(val == 'channel-details'){
+      this.list = this.list7
       this.selected = this.list[0].name
     }
   }
